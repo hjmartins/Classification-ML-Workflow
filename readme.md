@@ -51,16 +51,11 @@ The model aims to support **credit risk assessment** and improve decision-making
 │
 ├── data/
 │   └── lending_club.csv
+│   └── loan_eda_cleaned.csv
 │
 ├── notebooks/
 │   └── 01_EDA_LendingClub.ipynb
-│   └── 02_Modeling_LendingClub.ipynb
-│
-├── src/
-│   ├── preprocessing.py
-│   ├── eda.py
-│   ├── train.py
-│   └── utils.py
+│   └── main.ipynb
 │
 ├── models/
 │   └── best_model.pkl
