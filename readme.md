@@ -1,7 +1,3 @@
-Here is the **professional, polished README in English**, including a clear description of the **problem being solved** (credit risk assessment):
-
----
-
 # 📘 Lending Club — Exploratory Analysis + Credit Risk Classification
 
 ## 📌 **Overview**
