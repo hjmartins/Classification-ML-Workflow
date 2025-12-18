@@ -1,213 +1,219 @@
-# 📘 Lending Club — Exploratory Analysis + Credit Risk Classification
+# 🏦 Credit Risk Intelligence Dashboard
 
-## 📌 **Overview**
-
-This project performs a complete analysis and machine learning workflow using the **Lending Club Loan Data**.
-It includes:
-
-* Data cleaning and preprocessing
-* Exploratory Data Analysis (EDA)
-* Feature engineering
-* Encoding of categorical variables
-* Handling class imbalance
-* Training and comparing multiple classification models
-* Interpreting the results
-
-The final goal is to build a model capable of predicting the **loan status** and assessing the probability of **credit default**.
+An end-to-end **credit risk analysis and decision-support system** that combines **machine learning** and **financial impact simulation** to enable **transparent and business-driven lending decisions**.
 
 ---
 
-# ❗ **Problem Definition**
+## 📌 Project Overview
 
-Financial institutions face significant challenges when granting loans, especially in distinguishing **low-risk** from **high-risk** applicants.
-Incorrect classification can lead to:
+Financial institutions face a constant trade-off between **risk mitigation** and **customer approval**.
+Approving high-risk loans leads to financial losses, while overly conservative credit policies reduce growth.
 
-* Financial losses from loan defaults
-* Incorrect approval of risky applicants
-* Rejection of good customers
+This project demonstrates how **data science and explainable machine learning** can be used to:
 
-This project addresses the question:
-
-> **“Given a customer’s financial profile, employment information, credit score, and loan details, can we accurately predict their loan status?”**
-
-The target variable is:
-
-```
-loan_status
-```
-
-The model aims to support **credit risk assessment** and improve decision-making in loan approval.
+* Predict loan default risk
+* Explain model decisions transparently
+* Quantify financial impact through interactive simulations
 
 ---
 
-# 📂 **Project Structure**
+## 🎯 Objectives
+
+* Perform structured **Exploratory Data Analysis (EDA)**
+* Engineer meaningful **risk-related features**
+* Train and evaluate a **credit default prediction model**
+* Apply **SHAP** for model explainability
+* Translate predictions into **financial outcomes**
+
+---
+
+## 🧠 Solution Architecture
 
 ```
-📁 lending-club-loan-analysis
+EDA
+ ├─ Data understanding & feature engineering
+ └─ Risk segmentation
+
+Modeling
+ ├─ Training & evaluation
+ └─ Threshold-based decision logic
+
+Explainability
+ ├─ Global feature importance (SHAP)
+ ├─ Feature impact & interactions
+ └─ Individual predictions
+
+Business Impact
+ ├─ Financial simulation
+ ├─ Threshold optimization
+ └─ Estimated savings analysis
+```
+
+---
+
+##  Application Pages
+
+###  Home
+
+Project overview, context, solution explanation and navigation guide.
+
+###  EDA
+
+* Distribution analysis
+* Bivariate and multivariate relationships
+* Engineered features such as:
+
+  * Financial stress score
+  * Savings rate
+  * Credit maturity
+  * Income and score bands
+
+###  Model & Explainability
+
+* Model performance metrics (ROC, Confusion Matrix)
+* Adjustable decision threshold
+* SHAP explainability:
+
+  * Global feature importance
+  * Feature impact (beeswarm)
+  * Feature interactions
+  * Individual prediction explanations
+
+###  Business Impact
+
+* Interactive financial simulation
+* User-defined cost per default
+* Threshold-based savings estimation
+* Approval rate vs risk trade-off analysis
+
+---
+
+##  Feature Engineering Highlights
+
+* **Financial Stress Score**
+  Weighted combination of debt and income ratios
+
+* **Credit Maturity**
+  Credit history normalized by age
+
+* **Savings Rate**
+  Savings relative to income
+
+* **Log-transformed financial variables**
+  To handle skewed distributions
+
+* **Risk segmentation bands**
+  Income, age and credit score groups
+
+---
+
+##  Explainability (SHAP)
+
+The project applies SHAP to ensure:
+
+* Transparency in model decisions
+* Alignment between EDA insights and model behavior
+* Explainable decisions at both **global** and **individual** levels
+
+This enables trust, accountability and regulatory-friendly analysis.
+
+---
+
+##  Business-Oriented Decision Making
+
+Rather than optimizing only technical metrics, the system focuses on:
+
+* **Loss prevention**
+* **Approval rate optimization**
+* **Threshold-based credit policies**
+* **Estimated financial savings**
+
+The Business Impact page translates model outputs into **monetary value**.
+
+---
+
+##  Tech Stack
+
+* **Python**
+
+  * pandas, numpy
+  * scikit-learn
+* **Visualization**
+
+  * Plotly
+  * Streamlit
+* **Explainable AI**
+
+  * SHAP
+* **Modeling**
+
+  * Classification models (logistic / tree-based)
+
+---
+
+##  How to Run the App
+
+```bash
+# create virtual environment
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# install dependencies
+pip install -r requirements.txt
+
+# run streamlit app
+streamlit run app.py
+```
+
+---
+
+##  Project Structure
+
+```
+machine_learning/
 │
-├── data/
-│   └── lending_club.csv
-│   └── loan_eda_cleaned.csv
+├── app/
+│   ├── app.py
+│   └── pages/
+│       ├── eda.py
+│       ├── modelos.py
+│       └── business_impact.py
 │
-├── notebooks/
-│   └── 01_EDA_LendingClub.ipynb
-│   └── main.ipynb
+├── back/
+│   ├── loan_eda.py
+│   └── models.py
 │
-├── models/
-│   └── best_model.pkl
-│
-├── requirements.txt
+├── artifacts/
+│   ├── model.pkl
+│   ├── X_train.pkl
+│   ├── X_test.pkl
+│   └── y_test.pkl
 │
 └── README.md
 ```
 
 ---
 
-# 🧼 **1. Data Cleaning & Preprocessing**
+##  Key Takeaways
 
-Main preprocessing steps include:
-
-### ✔ Handling missing values
-
-### ✔ Fixing incorrect data types
-
-### ✔ Removing or capping outliers such as:
-
-* `loan_amount`
-* `annual_income`
-* `dti`
-* `interest_rate`
-
-### ✔ Feature creation:
-
-* Income-to-loan ratio
-* Credit score grouping
-* Risk categories
+* Credit risk can be **modeled, explained and optimized**
+* Explainability bridges the gap between data science and business
+* Optimal thresholds maximize **financial efficiency**, not just accuracy
+* Data-driven decisions reduce losses while preserving growth
 
 ---
 
-# 🔍 **2. Exploratory Data Analysis (EDA)**
-
-The EDA includes:
-
-* Univariate and bivariate visualizations
-* Distribution analysis
-* Category frequency plots
-* Correlation matrix
-* Boxplots for detecting outliers
-* Relationship between:
-
-  * loan purpose × loan status
-  * employment length × default probability
-  * interest rate × default
-  * income × default
-
-### **Key Insights**
-
-* Lower-income groups show higher default likelihood
-* Some loan purposes (e.g., debt consolidation) carry higher risk
-* The dataset is **highly imbalanced**, requiring balancing techniques
-
-
----
-
-# 🧪 **4. Categorical Encoding**
-
-Three encoding strategies were tested:
-
-### ✔ One-Hot Encoding
-
-### ✔ Label Encoding (best for tree-based models)
-
-
----
-
-# 🤖 **5. Trained Models**
-
-Multiple algorithms were compared:
-
-| Model               | Accuracy | ROC AUC  | F1-Score |
-| ------------------- | -------- | -------- | -------- |
-| Logistic Regression | ~        | ~        | ~        |
-| Random Forest       | ~        | ~        | ~        |
-| XGBoost             | **Best** | **Best** | **Best** |
-| Gradient Boosting   | ~        | ~        | ~        |
-| KNN                 | ~        | ~        | ~        |
-
-> Exact metrics are available in the modeling notebook.
-
-The models is stored in:
-
-```
-models/best_model.pkl
-```
-
----
-
-# 🧠 **6. Model Interpretation**
-
-Using **SHAP values**, the notebook explains:
-
-* Which features impact loan status prediction
-* How each feature influences individual predictions
-
-### Most important features:
-
-* `interest_rate`
-* `annual_income`
-* `credit_score`
-* `dti`
-* `loan_amount`
-
----
-
-# 🚀 **7. How to Run Locally**
-
-### 1️⃣ Clone the repository
-
-```bash
-git clone https://github.com/YOUR-USERNAME/lending-club-loan-analysis.git
-cd lending-club-loan-analysis
-```
-
-### 2️⃣ Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3️⃣ Open the notebooks
-
-```
-notebooks/01_EDA_LendingClub.ipynb
-notebooks/02_Modeling_LendingClub.ipynb
-```
-
----
-
-# 📊 **8. Tech Stack**
-
-* Python
-* pandas, numpy
-* matplotlib, seaborn, plotly
-* scikit-learn
-* xgboost
-* imbalanced-learn
-* shap
-* Jupyter Notebook
-
----
-
-# 📝 **9. Future Improvements**
-
-* Deployment using FastAPI or Flask
-* Interactive dashboard with Streamlit
-
-
----
-
-# 🧑‍💼 **Author**
+##  Author
 
 **Henrique Martins**
-🔗 LinkedIn: *[https://www.linkedin.com/in/henrique-jos%C3%A9-dos-santos-martins-a14235236/](https://www.linkedin.com/in/henrique-jos%C3%A9-dos-santos-martins-a14235236/)*
-📧 Email: *hjmartins88@gmail.com*
+Bachelor in Computer Science
+Experience in Data Analysis, Machine Learning and Data Visualization
+
+---
+
+##  Disclaimer
+
+This project is for **educational and portfolio purposes** and does not represent a real financial institution’s production system.
+
+
+
