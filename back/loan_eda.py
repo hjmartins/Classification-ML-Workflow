@@ -122,7 +122,7 @@ def bivariate_figures(df):
     return {
         
         "Financial Stress vs Default": box_plot(df, "loan_status", "financial_stress_score"),
-        "Savings Rate vs Default": box_plot(df, "loan_status", "savings_rate"),
+        #"Savings Rate vs Default": box_plot(df, "loan_status", "savings_rate"),
         "Credit Maturity vs Default": box_plot(df, "loan_status", "credity_maturity"),
 
         
