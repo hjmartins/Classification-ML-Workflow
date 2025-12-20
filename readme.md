@@ -1,7 +1,7 @@
 # 🏦 Credit Risk Intelligence Dashboard
 
 An end-to-end **credit risk analysis and decision-support system** that combines **machine learning** and **financial impact simulation** to enable **transparent and business-driven lending decisions**.
-
+[dashboard](https://credit-risk-gvdkyapp3dmukvy3dq88ead.streamlit.app/)
 ---
 
 ## 📌 Project Overview
